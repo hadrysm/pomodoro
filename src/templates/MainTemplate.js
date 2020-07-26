@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-const MainTemplate = ({ children }) => <Router>{children}</Router>;
+import GlobalStyled from 'theme/GlobalStyled';
+
+const MainTemplate = ({ children }) => (
+  <Router>
+    <GlobalStyled />
+    {children}
+  </Router>
+);
 
 export default MainTemplate;
 
