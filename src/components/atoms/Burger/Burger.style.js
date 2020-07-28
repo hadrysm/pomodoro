@@ -5,6 +5,7 @@ export const BurgerButton = styled.button`
   z-index: ${({ theme }) => theme.zIndex.level9};
   width: 4rem;
   height: 4rem;
+  background-color: transparent;
   border: none;
   cursor: pointer;
 

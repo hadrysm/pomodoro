@@ -47,7 +47,7 @@ const theme = {
   },
 
   layout: {
-    maxContainerWidth: '1200px',
+    maxContainerWidth: '1700px',
   },
 };
 
@@ -55,6 +55,7 @@ export const themeDark = {
   colors: {
     primary: '#7B0BEB',
     secondary: '#8650FA',
+    tertiary: '#A8DADC',
     background: '#192532',
     background20: '#1E2A37',
     white: '#FBFEF9',
@@ -67,6 +68,7 @@ export const themeLight = {
   colors: {
     primary: '#7B0BEB',
     secondary: '#8650FA',
+    tertiary: '#F27A23',
     background: '#f4f2f3',
     background20: '#e7e8e8',
     white: '#FBFEF9',
