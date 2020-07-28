@@ -1,5 +1,11 @@
 import React from 'react';
 
-const TimerPage = () => <p>Timer Page</p>;
+import PageTemplate from 'templates/PageTemplate';
+
+const TimerPage = () => (
+  <PageTemplate>
+    <p>Timer Page</p>
+  </PageTemplate>
+);
 
 export default TimerPage;

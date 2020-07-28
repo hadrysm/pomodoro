@@ -1,5 +1,10 @@
 import React from 'react';
+import PageTemplate from 'templates/PageTemplate';
 
-const SettingsPage = () => <p>setting page</p>;
+const SettingsPage = () => (
+  <PageTemplate>
+    <p>setting page</p>
+  </PageTemplate>
+);
 
 export default SettingsPage;
