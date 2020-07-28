@@ -20,11 +20,25 @@ export const Wrapper = styled.div`
     css`
       transform: translateX(0);
     `}
+
+  @media ${({ theme }) => theme.mq.desktop}{
+    position: static;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: auto;
+    height: auto;
+  }
 `;
 
 export const InnerWrapper = styled.div`
   display: block;
   padding: 0 6rem;
+
+  @media ${({ theme }) => theme.mq.desktop} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   ${({ isFlex }) =>
     isFlex &&
@@ -34,4 +48,10 @@ export const InnerWrapper = styled.div`
       align-items: center;
       margin-top: 4rem;
     `}
+
+    @media ${({ theme }) => theme.mq.desktop} {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0;
+  }
 `;

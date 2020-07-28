@@ -22,7 +22,7 @@ export const Button = styled.button`
   }
 
   @media ${({ theme }) => theme.mq.desktop} {
-    margin: 1rem 0;
+    margin: 1rem;
   }
 
   ${({ secondary }) =>
@@ -30,10 +30,10 @@ export const Button = styled.button`
     css`
       border-color: ${({ theme }) => theme.colors.tertiary};
       color: ${({ theme }) => theme.colors.tertiary};
-    `}
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.tertiary};
-    color: ${({ theme }) => theme.colors.background};
-  }
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.tertiary};
+        color: ${({ theme }) => theme.colors.background};
+      }
+    `}
 `;
