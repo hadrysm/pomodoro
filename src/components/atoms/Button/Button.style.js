@@ -10,7 +10,7 @@ export const Button = styled.button`
   background-color: none;
   color: ${({ theme }) => theme.colors.primary};
   font-weight: ${({ theme }) => theme.font.weight.regular};
-  font-size: ${({ theme }) => theme.font.size.m};
+  font-size: ${({ theme }) => theme.font.size.l};
   text-transform: uppercase;
   letter-spacing: 1.2px;
   cursor: pointer;

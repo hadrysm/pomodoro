@@ -34,8 +34,8 @@ export const NavLinkItem = styled(NavLink)`
     transform: translateX(0);
   }
 
-  &.active::after {
-    transform: translateX(0);
+  &.active {
+    color: ${({ theme }) => theme.colors.secondary};
   }
 
   @media ${({ theme }) => theme.mq.tablet} {
@@ -43,6 +43,6 @@ export const NavLinkItem = styled(NavLink)`
   }
 
   @media ${({ theme }) => theme.mq.desktop} {
-    font-size: ${({ theme }) => theme.font.size.s};
+    font-size: ${({ theme }) => theme.font.size.xl};
   }
 `;

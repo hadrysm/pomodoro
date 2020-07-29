@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { routes } from 'routes';
 
 import MainTemplate from 'templates/MainTemplate';
-import SettingsPage from 'views/SettingsPage/SettingsPage';
+import SettingsPage from 'views/SettingsPage';
 import TimerPage from 'views/TimerPage/TimerPage';
 
 const App = () => (

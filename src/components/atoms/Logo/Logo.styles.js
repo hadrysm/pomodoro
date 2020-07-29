@@ -9,14 +9,13 @@ export const StyledLink = styled(Link)`
   margin: 0 0 0 -10px;
 `;
 
-export const StyledLogo = styled.span`
+export const StyledLogo = styled.h1`
   padding: 0.5rem 1rem;
-  display: block;
   color: ${({ theme }) => theme.colors.primary};
   font-size: ${({ theme }) => theme.font.size.xl};
   letter-spacing: 0.5px;
 
   @media ${({ theme }) => theme.mq.tablet} {
-    font-size: ${({ theme }) => theme.font.size.xxl};
+    font-size: ${({ theme }) => theme.font.size.xxxl};
   }
 `;

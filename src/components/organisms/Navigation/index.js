@@ -6,7 +6,7 @@ import NavList from 'components/molecules/NavList';
 import { Nav } from './Navigation.style';
 
 const Navigation = () => {
-  const [isMenuVisible, toggleMenuVisibility] = useState(true);
+  const [isMenuVisible, toggleMenuVisibility] = useState(false);
 
   const handleBurgerClick = () => toggleMenuVisibility((prevState) => !prevState);
 

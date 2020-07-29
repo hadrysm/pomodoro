@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
 
+  @media ${({ theme }) => theme.mq.desktop}{
+   transform: translateX(0);;
+  }
+
   ${({ isVisibility }) =>
     isVisibility &&
     css`
