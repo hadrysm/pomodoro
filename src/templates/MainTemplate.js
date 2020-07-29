@@ -2,18 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { useSelector } from 'react-redux';
+import { themeDark, themeLight } from 'theme/mainTheme';
 
 import GlobalStyled from 'theme/GlobalStyled';
-import { themeLight } from 'theme/mainTheme';
+import { themeColorsType } from 'store/settings/types';
 
-const MainTemplate = ({ children }) => (
-  <Router>
-    <ThemeProvider theme={themeLight}>
-      <GlobalStyled />
-      {children}
-    </ThemeProvider>
-  </Router>
-);
+const MainTemplate = ({ children }) => {
+  const getThemeColor = (state) => state.settings.colorTheme;
+  const theme = useSelector(getThemeColor);
+
+  return (
+    <Router>
+      <ThemeProvider theme={theme === themeColorsType.LIGHT ? themeLight : themeDark}>
+        <GlobalStyled />
+        {children}
+      </ThemeProvider>
+    </Router>
+  );
+};
 
 export default MainTemplate;
 
