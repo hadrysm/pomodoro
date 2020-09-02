@@ -9,7 +9,7 @@ import GlobalStyled from 'theme/GlobalStyled';
 import { themeColorsType } from 'store/settings/types';
 
 const MainTemplate = ({ children }) => {
-  const getThemeColor = (state) => state.settings.colorTheme;
+  const getThemeColor = ({ settings }) => settings.colorTheme;
   const theme = useSelector(getThemeColor);
 
   return (

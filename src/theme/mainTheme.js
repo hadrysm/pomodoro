@@ -22,6 +22,9 @@ const theme = {
       xl: '2.2rem',
       xxl: '2.6rem',
       xxxl: '3.6rem',
+      big: '6rem',
+      bigger: '9rem',
+      biggest: '13rem',
     },
   },
 
@@ -53,26 +56,28 @@ const theme = {
 
 export const themeDark = {
   colors: {
-    primary: '#7B0BEB',
-    secondary: '#8650FA',
-    tertiary: '#A8DADC',
-    background: '#192532',
-    background20: '#1E2A37',
-    white: '#FBFEF9',
-    black: '#000000',
+    primary: '#66FCF1',
+    secondary: '#45A29E',
+    tertiary: '#FD8C39',
+    background: '#1F2833',
+    background20: '#0B0C10',
+    text: '#FBFEF9',
+    white: '#FFFFFF',
+    white20: '#F2F2FF',
   },
   ...theme,
 };
 
 export const themeLight = {
   colors: {
-    primary: '#7B0BEB',
-    secondary: '#8650FA',
-    tertiary: '#F27A23',
-    background: '#f4f2f3',
-    background20: '#e7e8e8',
-    white: '#FBFEF9',
-    black: '#000000',
+    primary: '#EE4C7C',
+    secondary: '#9A1750',
+    tertiary: '#123C69',
+    background: '#E3E2DF',
+    background20: '#E3AFBC',
+    text: '#2D221C',
+    white: '#FFFFFF',
+    white20: '#F2F2FF',
   },
   ...theme,
 };

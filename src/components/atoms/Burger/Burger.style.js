@@ -12,6 +12,9 @@ export const BurgerButton = styled.button`
   @media ${({ theme }) => theme.mq.desktop} {
     display: none;
   }
+  :focus {
+    outline: none;
+  }
 `;
 
 export const BurgerLine = styled.span`

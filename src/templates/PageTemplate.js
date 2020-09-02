@@ -7,12 +7,12 @@ import { Wrapper } from 'components/atoms/Wrapper/Wrapper.style';
 const PageTemplate = ({ children }) => (
   <Wrapper>
     <Navigation />
-    {children}
+    <Wrapper as="main">{children}</Wrapper>
   </Wrapper>
 );
 
 PageTemplate.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default PageTemplate;

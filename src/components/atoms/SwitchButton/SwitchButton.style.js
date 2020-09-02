@@ -13,11 +13,6 @@ export const StyledSwitchButton = styled.input`
   position: relative;
   margin: 0;
   border: 2px solid ${({ theme }) => theme.colors.primary};
-  background: linear-gradient(
-    180deg,
-    ${({ theme }) => theme.colors.background} 0%,
-    ${({ theme }) => theme.colors.background20} 100%
-  );
   transition: all 0.2s ease;
 
   &:after {
@@ -29,14 +24,17 @@ export const StyledSwitchButton = styled.input`
     height: 2.4rem;
     border-radius: 50%;
     background: ${({ theme }) => theme.colors.primary};
-    box-shadow: 0 1px 2px ${({ theme }) => theme.colors.background20};
     transition: transform 0.2s ease-in-out;
   }
 
   &:checked {
-    border-color: #654fec;
+    border-color: ${({ theme }) => theme.colors.primary};
     &:after {
       transform: translatex(20px);
     }
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
