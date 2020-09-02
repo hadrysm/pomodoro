@@ -41,7 +41,7 @@ const SettingsPage = () => {
       </Section>
 
       <Section>
-        <Headline>Cycle time</Headline>
+        <Headline>Cycle time in minutes</Headline>
         <TimeSettingsBox
           settingType={timerLabel.SESSION}
           settingValue={sessionLength}

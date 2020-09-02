@@ -10,7 +10,7 @@ import { Strong } from './BreakInterval.style';
 const BreakInterval = ({ time, nextAction }) => (
   <div>
     <Paragraph isBig>
-      next action: <Strong>{nextAction === timerLabel.BREAK ? 'break' : 'session'}</Strong>
+      next action: <Strong>{nextAction === timerLabel.BREAK ? 'session' : 'break'}</Strong>
     </Paragraph>
     <Time isSmall>{getMinutes(time)}</Time>
     <Time isSmall>:</Time>

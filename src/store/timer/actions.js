@@ -33,3 +33,11 @@ export const setTimerInProgress = (isInProgress) => ({
   type: timerTypes.SET_TIMER_IN_PROGRESS,
   payload: { isInProgress },
 });
+
+export const setDefaultSettings = (sessionLength, breakLength) => ({
+  type: timerTypes.SET_DEFAULT_SETTINGS,
+  payload: {
+    sessionLength,
+    breakLength,
+  },
+});

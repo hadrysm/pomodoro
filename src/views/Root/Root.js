@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { routes } from 'routes';
@@ -12,6 +12,7 @@ import {
   setNextTime,
   setTimerLabel,
   setTimerInProgress,
+  setDefaultSettings,
 } from 'store/timer/actions';
 import { timerLabel } from 'store/timer/types';
 import MainTemplate from 'templates/MainTemplate';
@@ -35,16 +36,12 @@ const Root = () => {
   const [start, stop] = useInterval(countdown, 10, false);
 
   // func change current time beteen session time and break time
-  const setCycleTime = () => {
-    if (currentCycleType === timerLabel.SESSION) {
-      dispatch(setCurrentTime(convertToMilliseconds(sessionLength)));
-      dispatch(setNextTime(convertToMilliseconds(breakLength)));
-      dispatch(setTimerLabel(timerLabel.BREAK));
-    } else if (currentCycleType === timerLabel.BREAK) {
-      dispatch(setCurrentTime(convertToMilliseconds(breakLength)));
-      dispatch(setNextTime(convertToMilliseconds(sessionLength)));
-      dispatch(setTimerLabel(timerLabel.SESSION));
-    }
+  const setCycleTime = (type, currentLength, nextLength) => {
+    dispatch(setTimerLabel(type));
+    dispatch(setCurrentTime(convertToMilliseconds(currentLength)));
+    dispatch(setNextTime(convertToMilliseconds(nextLength)));
+    dispatch(toggleTimerRunning(true));
+    start();
   };
 
   const setCycle = () => {
@@ -52,18 +49,36 @@ const Root = () => {
     dispatch(setNextTime(convertToMilliseconds(breakLength)));
   };
 
-  useEffect(() => {
-    if (timerInProgress || isRunning) return;
-    setCycle();
-  }, [isRunning, timerInProgress, setCycle]);
+  const memoizedSetCycle = useCallback(setCycle, [sessionLength, breakLength]);
+
+  const memoizedsetCycleTime = useCallback(setCycleTime, [isRunning, currentCycleType]);
 
   useEffect(() => {
-    if (currentTime - 10 < 0) {
+    if (timerInProgress || isRunning) return;
+    memoizedSetCycle();
+  }, [isRunning, timerInProgress, memoizedSetCycle]);
+
+  useEffect(() => {
+    if (timerInProgress && currentTime - 10 < 0) {
       stop();
       dispatch(toggleTimerRunning(false));
-      setCycleTime();
+      if (!isRunning && currentCycleType === timerLabel.BREAK) {
+        memoizedsetCycleTime(timerLabel.SESSION, sessionLength, breakLength);
+      } else if (!isRunning && currentCycleType === timerLabel.SESSION) {
+        memoizedsetCycleTime(timerLabel.BREAK, breakLength, sessionLength);
+      }
     }
-  }, [stop, currentTime, setCycleTime, toggleTimerRunning]);
+  }, [
+    stop,
+    currentTime,
+    memoizedsetCycleTime,
+    dispatch,
+    timerInProgress,
+    isRunning,
+    currentCycleType,
+    breakLength,
+    sessionLength,
+  ]);
 
   const onStartTimer = () => {
     dispatch(toggleTimerRunning(true));
@@ -77,8 +92,8 @@ const Root = () => {
   };
 
   const onClearTimer = () => {
-    dispatch(toggleTimerRunning(false));
-    dispatch(setTimerInProgress(false));
+    dispatch(setDefaultSettings(sessionLength, breakLength));
+    memoizedSetCycle();
     stop();
   };
 

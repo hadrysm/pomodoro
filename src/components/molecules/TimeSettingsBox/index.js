@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph.style';
-import { Headline } from 'components/atoms/Headline/Headline.style';
 import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon.style';
 import plusIcon from 'assets/icons/plus.svg';
 import minusIcon from 'assets/icons/minus.svg';
-import { InnerWrapper, Wrapper } from './TimeSettingsBox.style';
+import { StyledHeadline, InnerWrapper, Wrapper } from './TimeSettingsBox.style';
 
 const TimeSettingsBox = ({ settingValue, incrementTime, decrementTime, settingType }) => {
   const handleIncrement = (type) => {
@@ -15,13 +14,15 @@ const TimeSettingsBox = ({ settingValue, incrementTime, decrementTime, settingTy
   };
 
   const handleDecrement = (type) => {
-    if (settingValue <= 0) return;
+    if (settingValue <= 1) return;
     decrementTime(type);
   };
 
   return (
     <Wrapper>
-      <Headline>{settingType === 'sessionLength' ? 'session' : 'break'}</Headline>
+      <StyledHeadline>
+        {settingType === 'sessionLength' ? 'session time' : 'break time'}
+      </StyledHeadline>
       <InnerWrapper>
         <ButtonIcon icon={plusIcon} type="button" onClick={() => handleIncrement(settingType)} />
         <Paragraph>{settingValue}</Paragraph>

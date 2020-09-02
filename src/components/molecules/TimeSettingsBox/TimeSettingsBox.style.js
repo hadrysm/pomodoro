@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Headline } from 'components/atoms/Headline/Headline.style';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -12,4 +13,8 @@ export const InnerWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const StyledHeadline = styled(Headline)`
+  text-transform: capitalize;
 `;

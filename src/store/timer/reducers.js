@@ -1,8 +1,8 @@
 import timerTypes, { timerLabel } from './types';
 
 const INITIAL_STATE = {
-  sessionLength: 1,
-  breakLength: 2,
+  sessionLength: 25,
+  breakLength: 5,
   currentTime: 0,
   nextTime: 0,
   timerLabel: timerLabel.SESSION,
@@ -52,6 +52,17 @@ const settingsReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         timerInProgress: payload.isInProgress,
+      };
+
+    case timerTypes.SET_DEFAULT_SETTINGS:
+      return {
+        sessionLength: payload.sessionLength,
+        breakLength: payload.breakLength,
+        currentTime: 0,
+        nextTime: 0,
+        timerLabel: timerLabel.SESSION,
+        isRunning: false,
+        timerInProgress: false,
       };
 
     default:
