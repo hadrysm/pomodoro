@@ -1,8 +1,8 @@
 import timerTypes, { timerLabel } from './types';
 
 const INITIAL_STATE = {
-  sessionLength: 25,
-  breakLength: 5,
+  sessionLength: 1,
+  breakLength: 2,
   currentTime: 0,
   nextTime: 0,
   timerLabel: timerLabel.SESSION,
