@@ -11,3 +11,7 @@ export const List = styled.ul`
     align-items: center;
   }
 `;
+
+export const ListItem = styled.li`
+  margin: 0 0.5rem;
+`;

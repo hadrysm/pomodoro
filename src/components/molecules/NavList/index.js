@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { routes } from 'routes';
 
 import { AppContext } from 'context';
-import { List } from 'components/atoms/List/List.style';
+import { List, ListItem } from 'components/atoms/List/List.style';
 import { NavLinkItem } from 'components/atoms/NavLinkItem/NavLinkItem.style';
 import { Button } from 'components/atoms/Button/Button.style';
 import { Wrapper, InnerWrapper } from './NavList.style';
@@ -17,16 +17,21 @@ const NavList = ({ isVisibility }) => {
     <Wrapper isVisibility={isVisibility}>
       <InnerWrapper>
         <List>
-          <li>
+          <ListItem>
             <NavLinkItem exact to={routes.timer}>
               Timer
             </NavLinkItem>
-          </li>
-          <li>
+          </ListItem>
+          <ListItem>
+            <NavLinkItem exact to={routes.about}>
+              About
+            </NavLinkItem>
+          </ListItem>
+          <ListItem>
             <NavLinkItem exact to={routes.settings}>
               Settings
             </NavLinkItem>
-          </li>
+          </ListItem>
         </List>
       </InnerWrapper>
       <InnerWrapper isFlex>
