@@ -18,6 +18,7 @@ const SettingsPage = () => {
 
   const sessionLength = useSelector(({ timer }) => timer.sessionLength);
   const breakLength = useSelector(({ timer }) => timer.breakLength);
+  const timerInProgress = useSelector(({ timer }) => timer.timerInProgress);
 
   const handleIncrement = (settingType) => {
     dispatch(incrementTime(settingType));
@@ -43,12 +44,14 @@ const SettingsPage = () => {
       <Section>
         <Headline>Cycle time in minutes</Headline>
         <TimeSettingsBox
+          timerInProgress={timerInProgress}
           settingType={timerLabel.SESSION}
           settingValue={sessionLength}
           incrementTime={handleIncrement}
           decrementTime={handleDecrement}
         />
         <TimeSettingsBox
+          timerInProgress={timerInProgress}
           settingType={timerLabel.BREAK}
           settingValue={breakLength}
           incrementTime={handleIncrement}

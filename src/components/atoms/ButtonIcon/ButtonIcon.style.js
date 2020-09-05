@@ -13,4 +13,8 @@ export const ButtonIcon = styled.button`
   background-color: ${({ theme }) => theme.colors.white20};
   border: none;
   cursor: pointer;
+
+  :disabled {
+    opacity: 0.4;
+  }
 `;

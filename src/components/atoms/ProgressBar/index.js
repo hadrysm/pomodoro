@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, Track, ProgressBarTrack } from './CircleProgressBar.style';
+import { Wrapper, Track, ProgressBarTrack } from './ProgressBar.style';
 
 const ProgressBar = ({ progress }) => {
   return (

@@ -35,18 +35,17 @@ const Root = () => {
 
   const [start, stop] = useInterval(countdown, 10, false);
 
+  const setCycle = (currentLength, nextLength) => {
+    dispatch(setCurrentTime(convertToMilliseconds(currentLength)));
+    dispatch(setNextTime(convertToMilliseconds(nextLength)));
+  };
+
   // func change current time beteen session time and break time
   const setCycleTime = (type, currentLength, nextLength) => {
     dispatch(setTimerLabel(type));
-    dispatch(setCurrentTime(convertToMilliseconds(currentLength)));
-    dispatch(setNextTime(convertToMilliseconds(nextLength)));
+    setCycle(currentLength, nextLength);
     dispatch(toggleTimerRunning(true));
     start();
-  };
-
-  const setCycle = () => {
-    dispatch(setCurrentTime(convertToMilliseconds(sessionLength)));
-    dispatch(setNextTime(convertToMilliseconds(breakLength)));
   };
 
   const memoizedSetCycle = useCallback(setCycle, [sessionLength, breakLength]);
@@ -55,8 +54,8 @@ const Root = () => {
 
   useEffect(() => {
     if (timerInProgress || isRunning) return;
-    memoizedSetCycle();
-  }, [isRunning, timerInProgress, memoizedSetCycle]);
+    memoizedSetCycle(sessionLength, breakLength);
+  }, [isRunning, timerInProgress, memoizedSetCycle, sessionLength, breakLength]);
 
   useEffect(() => {
     if (timerInProgress && currentTime - 10 < 0) {
@@ -93,7 +92,7 @@ const Root = () => {
 
   const onClearTimer = () => {
     dispatch(setDefaultSettings(sessionLength, breakLength));
-    memoizedSetCycle();
+    memoizedSetCycle(sessionLength, breakLength);
     stop();
   };
 
@@ -109,6 +108,7 @@ const Root = () => {
         <Switch>
           <Route path={routes.timer} component={TimerPage} exact />
           <Route path={routes.settings} component={SettingsPage} exact />
+          {/* <Route path={routes.about} component={AboutPage} exact /> */}
         </Switch>
       </MainTemplate>
     </AppContext.Provider>

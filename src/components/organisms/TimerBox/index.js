@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { AppContext } from 'context';
 import Timer from 'components/molecules/Timer';
-import ProgressBar from 'components/atoms/CircleProgressBar';
+import ProgressBar from 'components/atoms/ProgressBar';
 import { useProgressBar } from 'hooks/useProgressBar';
 
 import { Button } from 'components/atoms/Button/Button.style';

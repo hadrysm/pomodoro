@@ -7,7 +7,13 @@ import plusIcon from 'assets/icons/plus.svg';
 import minusIcon from 'assets/icons/minus.svg';
 import { StyledHeadline, InnerWrapper, Wrapper } from './TimeSettingsBox.style';
 
-const TimeSettingsBox = ({ settingValue, incrementTime, decrementTime, settingType }) => {
+const TimeSettingsBox = ({
+  settingValue,
+  incrementTime,
+  decrementTime,
+  settingType,
+  timerInProgress,
+}) => {
   const handleIncrement = (type) => {
     if (settingValue >= 60) return;
     incrementTime(type);
@@ -24,15 +30,26 @@ const TimeSettingsBox = ({ settingValue, incrementTime, decrementTime, settingTy
         {settingType === 'sessionLength' ? 'session time' : 'break time'}
       </StyledHeadline>
       <InnerWrapper>
-        <ButtonIcon icon={plusIcon} type="button" onClick={() => handleIncrement(settingType)} />
+        <ButtonIcon
+          disabled={timerInProgress || settingValue >= 60}
+          icon={plusIcon}
+          type="button"
+          onClick={() => handleIncrement(settingType)}
+        />
         <Paragraph>{settingValue}</Paragraph>
-        <ButtonIcon icon={minusIcon} type="button" onClick={() => handleDecrement(settingType)} />
+        <ButtonIcon
+          disabled={timerInProgress || settingValue <= 1}
+          icon={minusIcon}
+          type="button"
+          onClick={() => handleDecrement(settingType)}
+        />
       </InnerWrapper>
     </Wrapper>
   );
 };
 
 TimeSettingsBox.propTypes = {
+  timerInProgress: PropTypes.bool.isRequired,
   settingValue: PropTypes.number.isRequired,
   incrementTime: PropTypes.func.isRequired,
   decrementTime: PropTypes.func.isRequired,
