@@ -1,18 +1,26 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  margin: 0 auto;
-  width: 70%;
+  position: fixed;
+  top: 0%;
+  left: 0;
+  width: 10px;
+  height: 100vh;
+  background-color: transparent;
 `;
 
-export const CircleTrack = styled.circle`
-  stroke: ${({ theme }) => theme.colors.background20};
-  /* stroke-width: 2px; */
-  fill: transparent;
+export const Track = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.background20};
 `;
 
-export const CircleThumb = styled.circle`
-  stroke: ${({ theme }) => theme.colors.secondary};
-  /* stroke-width: 2px; */
-  fill: transparent;
+export const ProgressBarTrack = styled(Track)`
+  background-color: ${({ theme }) => theme.colors.primary};
+  transform: ${({ progress }) => `translateY(-${progress}%)`};
+
+  transition: transform 1000ms linear;
 `;

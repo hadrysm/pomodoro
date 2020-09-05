@@ -5,7 +5,7 @@ import { convertToMilliseconds } from 'helpers';
 
 import { timerLabel } from 'store/timer/types';
 
-export const useCircleProgressBar = () => {
+export const useProgressBar = () => {
   const [maxProgress, setMaxProgress] = useState(0);
   const [progress, setProgress] = useState(0);
 

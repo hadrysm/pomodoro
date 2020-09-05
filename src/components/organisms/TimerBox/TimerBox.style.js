@@ -5,10 +5,11 @@ export const InnerWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 5rem;
+  position: relative;
 
   @media ${({ theme }) => theme.mq.desktop} {
     flex-direction: row;
-    margin-top: 4rem;
+    margin-top: 10rem;
   }
 `;
