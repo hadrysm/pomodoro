@@ -56,11 +56,11 @@ const theme = {
 
 export const themeDark = {
   colors: {
-    primary: '#66FCF1',
-    secondary: '#45A29E',
-    tertiary: '#FD8C39',
-    background: '#1F2833',
-    background20: '#0B0C10',
+    primary: '#3282B8',
+    secondary: '#BBE1Fa',
+    tertiary: '#EE4C7C',
+    background: '#121212',
+    background20: '#1B262C',
     text: '#FBFEF9',
     white: '#FFFFFF',
     white20: '#F2F2FF',
