@@ -11,3 +11,5 @@ export const getMinutes = (ms) => {
 
   return minutes < 10 ? `0${minutes}` : minutes;
 };
+
+export const generateUniqueId = () => Math.random().toString(16).slice(2);

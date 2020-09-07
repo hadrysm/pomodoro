@@ -9,7 +9,7 @@ import { Headline } from 'components/atoms/Headline/Headline.style';
 import SwitchButton from 'components/atoms/SwitchButton';
 import { incrementTime, decrementTime } from 'store/timer/actions';
 import { timerLabel } from 'store/timer/types';
-import { Section } from './SettingPage.style';
+import { Section } from '../../components/atoms/Section/Section.style';
 
 const SettingsPage = () => {
   const [theme, toggleTheme] = useDarkMode();

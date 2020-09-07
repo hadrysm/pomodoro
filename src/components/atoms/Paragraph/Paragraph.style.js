@@ -8,12 +8,19 @@ export const Paragraph = styled.p`
   ${({ isBig }) =>
     isBig &&
     css`
-      font-size: ${({ theme }) => theme.font.size.xxl};
+      font-size: ${({ theme }) => theme.font.size.m};
       color: ${({ theme }) => theme.colors.primary};
-      margin: 1rem 0;
+      margin: 0.5rem 0;
+      margin-right: 0.5rem;
       text-transform: uppercase;
       letter-spacing: 2px;
     `}
+
+  ${({ justify }) =>
+    justify &&
+    css`
+      text-align: justify;
+    `}  
 
   @media ${({ theme }) => theme.mq.tablet}{
     font-size: ${({ theme }) => theme.font.size.xl};

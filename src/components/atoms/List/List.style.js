@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const List = styled.ul`
   list-style: none;
@@ -10,6 +10,20 @@ export const List = styled.ul`
     justify-content: space-between;
     align-items: center;
   }
+
+  ${({ isColumn }) =>
+    isColumn &&
+    css`
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      @media ${({ theme }) => theme.mq.desktop} {
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    `}
 `;
 
 export const ListItem = styled.li`
