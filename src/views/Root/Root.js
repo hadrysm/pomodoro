@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { routes } from 'routes';
 
-import { convertToMilliseconds } from 'helpers';
+import { convertToMilliseconds, getSeconds, getMinutes } from 'helpers';
 import { useInterval } from 'hooks/useInteval';
 import { AppContext } from 'context';
 import {
@@ -79,6 +79,14 @@ const Root = () => {
     breakLength,
     sessionLength,
   ]);
+
+  useEffect(() => {
+    if (timerInProgress) {
+      document.title = `Pomodoro | ${getMinutes(currentTime)}:${getSeconds(currentTime)}`;
+    } else {
+      document.title = 'Pomodoro';
+    }
+  }, [timerInProgress, currentTime]);
 
   const onStartTimer = () => {
     dispatch(toggleTimerRunning(true));
