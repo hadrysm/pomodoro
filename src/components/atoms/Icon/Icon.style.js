@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-export const Icon = styled.span`
+export const CircleIcon = styled.span`
   display: block;
-  width: 30px;
-  height: 30px;
-  margin: 0 1rem;
-  background-image: url(${({ iconImage }) => iconImage});
-  background-repeat: no-repeat;
-  background-size: 50%;
-  background-position: center;
+  width: 20px;
+  height: 20px;
+  margin: 0 1rem 0 0;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 50%;
+  transform: scale(0.6);
 `;

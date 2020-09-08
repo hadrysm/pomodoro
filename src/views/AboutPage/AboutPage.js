@@ -6,50 +6,18 @@ import { Section } from 'components/atoms/Section/Section.style';
 import { Headline } from 'components/atoms/Headline/Headline.style';
 import { List, ListItem } from 'components/atoms/List/List.style';
 import { Paragraph } from 'components/atoms/Paragraph/Paragraph.style';
-import { Icon } from 'components/atoms/Icon/Icon.style';
+import { CircleIcon } from 'components/atoms/Icon/Icon.style';
 import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon.style';
-import { generateUniqueId } from 'helpers';
+import { techData } from 'data';
 
-import tickIcon from 'assets/icons/tick.svg';
 import githubIcon from 'assets/icons/github.svg';
 import linkedin from 'assets/icons/linkedin.svg';
-
-const techData = [
-  {
-    id: generateUniqueId(),
-    content: 'create react app',
-  },
-  {
-    id: generateUniqueId(),
-    content: 'react hooks',
-  },
-  {
-    id: generateUniqueId(),
-    content: 'redux',
-  },
-  {
-    id: generateUniqueId(),
-    content: 'styled-components',
-  },
-  {
-    id: generateUniqueId(),
-    content: 'prop-types',
-  },
-  {
-    id: generateUniqueId(),
-    content: 'husky | lint-staged',
-  },
-  {
-    id: generateUniqueId(),
-    content: 'eslint | prettier',
-  },
-];
 
 const AboutPage = () => {
   const listElements = techData.map(({ id, content }) => (
     <ListItem key={id}>
       <FlexWrapper>
-        <Icon iconImage={tickIcon} />
+        <CircleIcon />
         <Paragraph>{content}</Paragraph>
       </FlexWrapper>
     </ListItem>
