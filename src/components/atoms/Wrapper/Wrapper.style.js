@@ -14,11 +14,11 @@ export const Wrapper = styled.div`
     `}
 
   @media ${({ theme }) => theme.mq.tablet} {
-    padding: 4rem;
+    padding: 1rem 4rem;
   }
 
   @media ${({ theme }) => theme.mq.bigTablet} {
-    padding: 6rem;
+    padding: 2rem 6rem;
   }
 `;
 

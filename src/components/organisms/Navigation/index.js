@@ -6,14 +6,16 @@ import NavList from 'components/molecules/NavList';
 import { Nav } from './Navigation.style';
 
 const Navigation = () => {
-  const [isMenuVisible, toggleMenuVisibility] = useState(false);
+  const [isMenuVisible, setMenuVisibility] = useState(false);
 
-  const handleBurgerClick = () => toggleMenuVisibility((prevState) => !prevState);
+  const handleBurgerClick = () => setMenuVisibility((prevState) => !prevState);
+
+  const closeNavigation = () => setMenuVisibility(false);
 
   return (
     <header>
       <Nav>
-        <Logo>pomodoro</Logo>
+        <Logo handleClick={closeNavigation}>pomodoro</Logo>
         <Burger handleClick={handleBurgerClick} isVisibility={isMenuVisible} />
         <NavList handleClick={handleBurgerClick} isVisibility={isMenuVisible} />
       </Nav>

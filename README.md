@@ -1,6 +1,6 @@
 # pomodoro | simple pomodoro app
 
-- Live: [website](https://www.google.pl/)
+- Live: [website](https://hadrysm-pomodoro.netlify.app/)
 
 The Pomodoro Technique is a productivity system that helps you take the right number of breaks while still getting your work done. Traditionally, it breaks up your day into 15-minute focus sessions followed by five-minute breaks.
 
