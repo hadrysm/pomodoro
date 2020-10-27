@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useSelector } from 'react-redux';
 import { themeDark, themeLight } from 'theme/mainTheme';
@@ -13,12 +12,12 @@ const MainTemplate = ({ children }) => {
   const theme = useSelector(getThemeColor);
 
   return (
-    <Router>
+    <>
       <ThemeProvider theme={theme === themeColorsType.LIGHT ? themeLight : themeDark}>
         <GlobalStyled />
         {children}
       </ThemeProvider>
-    </Router>
+    </>
   );
 };
 

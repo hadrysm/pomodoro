@@ -1,7 +1,8 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, useLocation } from 'react-router-dom';
 import { routes } from 'routes';
+import { AnimatePresence } from 'framer-motion';
 
 import { convertToMilliseconds, getSeconds, getMinutes } from 'helpers';
 import { useInterval } from 'hooks/useInteval';
@@ -14,6 +15,7 @@ import {
   setTimerInProgress,
   setDefaultSettings,
 } from 'store/timer/actions';
+import MotionRoute from 'components/utility/MotionRoute';
 import { timerLabel } from 'store/timer/types';
 import MainTemplate from 'templates/MainTemplate';
 import SettingsPage from 'views/SettingsPage';
@@ -22,6 +24,7 @@ import AboutPage from 'views/AboutPage/AboutPage';
 import PageTemplate from 'templates/PageTemplate';
 
 const Root = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const currentCycleType = useSelector(({ timer }) => timer.timerLabel);
@@ -116,11 +119,13 @@ const Root = () => {
     <AppContext.Provider value={appContextElements}>
       <MainTemplate>
         <PageTemplate>
-          <Switch>
-            <Route path={routes.timer} component={TimerPage} exact />
-            <Route path={routes.settings} component={SettingsPage} exact />
-            <Route path={routes.about} component={AboutPage} exact />
-          </Switch>
+          <AnimatePresence initial={false} exitBeforeEnter>
+            <Switch location={location} key={location.key}>
+              <MotionRoute path={routes.timer} component={TimerPage} exact />
+              <MotionRoute path={routes.settings} component={SettingsPage} exact />
+              <MotionRoute path={routes.about} component={AboutPage} exact />
+            </Switch>
+          </AnimatePresence>
         </PageTemplate>
       </MainTemplate>
     </AppContext.Provider>
