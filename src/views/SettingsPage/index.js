@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useDarkMode } from 'hooks/useDarkMode';
 import { themeColorsType } from 'store/settings/types';
 
-import PageTemplate from 'templates/PageTemplate';
 import TimeSettingsBox from 'components/molecules/TimeSettingsBox';
 import { Headline } from 'components/atoms/Headline/Headline.style';
 import SwitchButton from 'components/atoms/SwitchButton';
@@ -29,7 +28,7 @@ const SettingsPage = () => {
   };
 
   return (
-    <PageTemplate>
+    <>
       <Section>
         <Headline>Color theme</Headline>
         <div>
@@ -58,7 +57,7 @@ const SettingsPage = () => {
           decrementTime={handleDecrement}
         />
       </Section>
-    </PageTemplate>
+    </>
   );
 };
 

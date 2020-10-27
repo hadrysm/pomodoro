@@ -1,12 +1,7 @@
 import React from 'react';
 
-import PageTemplate from 'templates/PageTemplate';
 import TimerBox from 'components/organisms/TimerBox';
 
-const TimerPage = () => (
-  <PageTemplate>
-    <TimerBox />
-  </PageTemplate>
-);
+const TimerPage = () => <TimerBox />;
 
 export default TimerPage;

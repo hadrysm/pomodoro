@@ -19,6 +19,7 @@ import MainTemplate from 'templates/MainTemplate';
 import SettingsPage from 'views/SettingsPage';
 import TimerPage from 'views/TimerPage/TimerPage';
 import AboutPage from 'views/AboutPage/AboutPage';
+import PageTemplate from 'templates/PageTemplate';
 
 const Root = () => {
   const dispatch = useDispatch();
@@ -114,11 +115,13 @@ const Root = () => {
   return (
     <AppContext.Provider value={appContextElements}>
       <MainTemplate>
-        <Switch>
-          <Route path={routes.timer} component={TimerPage} exact />
-          <Route path={routes.settings} component={SettingsPage} exact />
-          <Route path={routes.about} component={AboutPage} exact />
-        </Switch>
+        <PageTemplate>
+          <Switch>
+            <Route path={routes.timer} component={TimerPage} exact />
+            <Route path={routes.settings} component={SettingsPage} exact />
+            <Route path={routes.about} component={AboutPage} exact />
+          </Switch>
+        </PageTemplate>
       </MainTemplate>
     </AppContext.Provider>
   );
